@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://dq1mbq5fhyhsk"]
+[gd_scene load_steps=26 format=3 uid="uid://dq1mbq5fhyhsk"]
 
 [ext_resource type="Script" uid="uid://dt31pubxshqk8" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bgqt5pd5icfby" path="res://assets/Prototype_Character/prototype_character.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://ccx7miwcjqimp" path="res://lightCircle.png" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(10, 14)
@@ -165,18 +166,56 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_qhqgy"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dqkch"]
+gradient = SubResource("Gradient_qhqgy")
+
 [node name="Player" type="CharacterBody2D"]
+light_mask = 0
+z_index = 1
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 0
 sprite_frames = SubResource("SpriteFrames_ivps1")
 animation = &"idle_right"
-frame_progress = 0.483126
+frame_progress = 0.529993
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, 0)
 zoom = Vector2(3, 3)
+
+[node name="LightCircle" type="Sprite2D" parent="."]
+z_index = 100
+position = Vector2(-2, 2)
+scale = Vector2(0.174634, 0.174634)
+texture = ExtResource("3_qhqgy")
+
+[node name="Sprite2D" type="Sprite2D" parent="LightCircle"]
+position = Vector2(-1230, -320)
+scale = Vector2(-5.63346, 4457.31)
+texture = SubResource("GradientTexture1D_dqkch")
+
+[node name="Sprite2D2" type="Sprite2D" parent="LightCircle"]
+position = Vector2(1210, -240)
+scale = Vector2(-5.63346, 4457.31)
+texture = SubResource("GradientTexture1D_dqkch")
+
+[node name="Sprite2D3" type="Sprite2D" parent="LightCircle"]
+position = Vector2(-180, 1230)
+rotation = -1.5708
+scale = Vector2(-5.63346, 4457.31)
+texture = SubResource("GradientTexture1D_dqkch")
+
+[node name="Sprite2D4" type="Sprite2D" parent="LightCircle"]
+position = Vector2(-310, -1210)
+rotation = -1.5708
+scale = Vector2(-5.63346, 4457.31)
+texture = SubResource("GradientTexture1D_dqkch")
