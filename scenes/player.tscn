@@ -193,6 +193,7 @@ position = Vector2(-1, 0)
 zoom = Vector2(3, 3)
 
 [node name="LightCircle" type="Sprite2D" parent="."]
+visible = false
 z_index = 100
 position = Vector2(-2, 2)
 scale = Vector2(0.174634, 0.174634)
